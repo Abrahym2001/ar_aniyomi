@@ -1,1 +1,1 @@
-
+-dontwarn org.jspecify.annotations.**
