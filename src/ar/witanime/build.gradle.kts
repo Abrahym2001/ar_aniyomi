@@ -1,19 +1,23 @@
+import io.github.secozzi.gradle.api.ContentWarning
+
 plugins {
-    id('com.android.application')
-    id('kotlin-android')
+    alias(proj.plugins.extension)
 }
 
-apply from: "$rootProject.projectDir/common.gradle"
-
-android {
-    namespace 'eu.kanade.tachiyomi.animeextension.ar.witanime'
-    defaultConfig {
-        applicationId 'eu.kanade.tachiyomi.animeextension.ar.witanime'
-        versionCode 1
-        versionName '1.0.0'
-    }
+extension {
+    name = "witanime"
+    versionCode = 5
+    contentWarning = ContentWarning.SAFE
 }
 
 dependencies {
-    implementation project(':core')
+    implementation("org.jsoup:jsoup:1.18.3")
+}
+
+android {
+    buildTypes {
+        named("release") {
+            proguardFile("proguard-rules.pro")
+        }
+    }
 }
