@@ -1,13 +1,19 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id('com.android.application')
+    id('kotlin-android')
 }
 
-ext {
-    extName = 'Witanime'
-    pkgName = 'witanime'
-    extClass = '.Witanime'
-    extVersionCode = 1
+apply from: "$rootProject.projectDir/common.gradle"
+
+android {
+    namespace 'eu.kanade.tachiyomi.animeextension.ar.witanime'
+    defaultConfig {
+        applicationId 'eu.kanade.tachiyomi.animeextension.ar.witanime'
+        versionCode 1
+        versionName '1.0.0'
+    }
 }
 
-apply from: "$rootProject.rootDir/common.gradle"
+dependencies {
+    implementation project(':core')
+}
