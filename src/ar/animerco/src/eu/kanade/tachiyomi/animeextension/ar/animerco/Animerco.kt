@@ -1,4 +1,4 @@
-package eu.kanade.tachiyomi.animeextension.ar.animerco
+package eu.kanade.tachiyomi.animeextension.ar.witanime
 
 import androidx.preference.PreferenceScreen
 import eu.kanade.tachiyomi.animesource.model.AnimeFilterList
@@ -27,7 +27,7 @@ import org.jsoup.nodes.Element
 import java.net.URLEncoder
 import kotlin.random.Random
 
-class Animerco : Source() {
+class witanime : Source() {
 
     // ============================== Settings ==============================
 
@@ -35,12 +35,12 @@ class Animerco : Source() {
 
     // ============================ Properties ==============================
 
-    override val name = "Animerco"
+    override val name = "witanime"
 
     override val lang = "ar"
 
     // The site rotates domains; every request follows the redirect to the current one.
-    override val baseUrl = "https://gat.animerco.org"
+    override val baseUrl = "https://www.witanime.net"
 
     override val supportsLatest = true
 
@@ -171,7 +171,7 @@ class Animerco : Source() {
     // ============================== Details ===============================
 
     override suspend fun getAnimeDetails(anime: SAnime): SAnime {
-        val doc = getDoc(anime.url) ?: throw Exception("Animerco: page not found")
+        val doc = getDoc(anime.url) ?: throw Exception("witanime: page not found")
         val statusText = doc.selectFirst("div.anime-status .status, div.status a")?.text()?.trim()
 
         return anime.apply {
