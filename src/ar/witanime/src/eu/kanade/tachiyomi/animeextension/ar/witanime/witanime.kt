@@ -13,7 +13,6 @@ class Witanime : ParsedAnimeHttpSource() {
     override val name = "Witanime"
 
     override val baseUrl = "https://www.witanime.net"
-    
 
     override val lang = "ar"
 
